@@ -1,6 +1,6 @@
 from django.db import models
 
-class Event(models.Modek):
+class Event(models.Model):
 
     priorities_list = (
         ('0', 'Sem Prioridade'),
