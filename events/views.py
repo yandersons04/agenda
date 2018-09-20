@@ -42,12 +42,12 @@ def all(request):
 def day(request, year:int, month:int, day:int):
     day = datetime(year, month, day)
     events = Event.objects.filter(date='{%Y-%m-%d}'.format(day)).order_by('-priority', 'event')
-    context = (
-        'today': localdate()
+    context = {
+        'today': localdate(),
         'day': day,
         'events': events,
         'next': day + timedelta(days=1),
         'previous': day - timedelta(days=1),
-        priorities: Event.priorities_list
-    )
+        'priorities': Event.priorities_list,
+    }
     return render(request, day.html, context)
