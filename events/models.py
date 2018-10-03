@@ -20,10 +20,6 @@ class Event(models.Model):
 
     class Meta:
         ordering = ('-date', '-priority', 'event',)
-        
-    def number_of_comments(self):
-        """Retorna a quantidade de comentários dentro de um evento."""
-        return self.comment_event.count()
 
     def __str__(self):
         return self.event
@@ -45,4 +41,4 @@ class Comment(models.Model):
         return g.get_image(default='identicon')
 
     def __str__(self):
-        return "{} commentou em {:%c}".format(self.author, self.commented)
+        return "{} comentou em {:%c}".format(self.author, self.commented)
