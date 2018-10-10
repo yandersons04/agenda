@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1> Perguntas e Respostas</h1>
+    <form method="PeR" class="per-form">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="save btn btn_default">Salvar</button>
+    </form>
+
+{% endblock %}

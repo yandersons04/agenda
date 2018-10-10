@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if per.deh_publi %}
+            <div class="date">
+                {{ per.deh_publi }}
+            </div>
+        {% endif %}
+        <h1>{{ per.pergunta }}</h1>
+        <p>{{ per.nome|linebreaksbr }}</p>
+    </div>
+{% endblock %}

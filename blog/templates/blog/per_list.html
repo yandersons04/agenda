@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <h1> Perguntas e Respostas </h1>
+    {% for per in pers %}
+    <div>
+        <div>
+            <p>Enviada: {{ per.deh_publi }}
+                <a href="#"> Editar</a>
+            </p>
+        </div>
+        <h1><a href="#">{{ per.pergunta }}</a></h1>
+        <p>{{ per.nome|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+
+<a href="{%url 'addper' %}"><button type="submit" class="btn btn-primary" data-toggle="modal">Nova Pergunta</button></a>
+
+{% endblock %}

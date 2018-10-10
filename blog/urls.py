@@ -6,4 +6,7 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('per', views.per, name='per'),
+    path('per_list', views.per_list, name='per_list'),
+    path('per_new', views.per_new, name='addper'),
 ]
