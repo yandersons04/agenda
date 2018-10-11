@@ -29,7 +29,7 @@ class PeR(models.Model):
     deh_publi = models.DateTimeField(
             blank=True, null=True)
     sexo = models.CharField(max_length=1, choices=Sexo, null=True)
-    data_nasc = models.DateField()
+    data_nasc = models.DateField(null=True)
     email = models.EmailField()
     pergunta = models.TextField()
 

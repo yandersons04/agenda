@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from libgravatar import Gravatar
+#from libgravatar import Gravatar
 
 # Create your models here.
 class Event(models.Model):

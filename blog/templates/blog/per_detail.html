@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class="post">
-        {% if per.deh_publi %}
+        {% if pers.deh_publi %}
             <div class="date">
-                {{ per.deh_publi }}
+                {{ pers.deh_publi }}
             </div>
         {% endif %}
-        <h1>{{ per.pergunta }}</h1>
-        <p>{{ per.nome|linebreaksbr }}</p>
+        <h1>{{ pers.pergunta }}</h1>
+        <p>{{ pers.nome|linebreaksbr }}</p>
     </div>
 {% endblock %}

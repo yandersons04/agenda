@@ -5,14 +5,14 @@
     <div>
         <div>
             <p>Enviada: {{ per.deh_publi }}
-                <a href="#"> Editar</a>
+                <a href="{% url 'per_edit' pergunta=per.pergunta %}"> Editar</a>
             </p>
         </div>
-        <h1><a href="#">{{ per.pergunta }}</a></h1>
+        <h1><a href="{% url 'per_detail' pergunta=per.pergunta %}">{{ per.pergunta }}</a></h1>
         <p>{{ per.nome|linebreaksbr }}</p>
     </div>
     {% endfor %}
 
-<a href="{%url 'addper' %}"><button type="submit" class="btn btn-primary" data-toggle="modal">Nova Pergunta</button></a>
+<a href="per_new"><button type="submit" class="btn btn-primary" data-toggle="modal">Nova Pergunta</button></a>
 
 {% endblock %}

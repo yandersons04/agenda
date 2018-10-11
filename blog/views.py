@@ -70,18 +70,33 @@ def per_list(request):
     return render(request, 'blog/per_list.html', {'pers': pers})
 
 def per_new(request):
-    if request.method == 'PER':
-        form = PERForm(request.PER)
-        if form.is_valid():
-            per = form.save(commit=False)
-            per.nome = request.user
-            per.deh_publi = timezone.now()
-            per.save()
-            return redirect('per_detail')
+    if request.method == "POST":
+        pers = PERForm(request.POST)
+        if pers.is_valid():
+            pers = pers.save(commit=False)
+            pers.nome = pers.nome
+            pers.deh_publi = timezone.now()
+            pers.save()
+            return redirect('per_detail', pergunta=pers.pergunta)
     else:
-        form = PERForm()
+        pers = PERForm()
+    return render(request, 'blog/per_edit.html', {'pers': pers})
 
-    context = {
-        'form': form
-    }
-    return render(request, 'blog/per_edit.html', context)
+def per_detail(request, pergunta):
+    pers = get_object_or_404(PeR, pergunta=pergunta)
+    return render(request, 'blog/per_detail.html', {'pers': pers})
+
+def per_edit(request, pergunta):
+    pers = get_object_or_404(PeR, pergunta=pergunta)
+    if request.method == 'POST':
+        form = PERForm(request.POST, instance=PeR)
+        if pers.is_valid():
+            pers = pers.save(commit=False)
+            pers.nome = pers.nome
+            pers.deh_publi = timezone.now()
+            pers.save()
+            return redirect('per_detail', pergunta=pers.pergunta)
+    else:
+        form = PERForm(instance=PeR)
+    return render(request, 'blog/per_edit.html', {'pers': form})
+
